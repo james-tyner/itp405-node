@@ -3,7 +3,7 @@ let WebSocket = require('ws');
 
 // create WebSocket server
 let wss = new WebSocket.Server({
-  port:8080
+  port:process.env.PORT || 8080
 });
 
 wss.on("connection", function(ws){ // this is for one connection instance
