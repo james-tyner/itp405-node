@@ -1,3 +1,22 @@
+// WebSockets assignment
+let WebSocket = require('ws');
+
+// create WebSocket server
+let wss = new WebSocket.Server({
+  port:8080
+});
+
+wss.on("connection", function(ws){ // this is for one connection instance
+  ws.on("message", function(message){
+    // wss.clients is the list of all connected clients on one server
+    wss.clients.forEach((client) => {
+      client.send(message);
+    });
+  });
+});
+
+/* PREVIOUS ASSIGNMENT
+
 const sqlite3 = require('sqlite3').verbose();
 
 let express = require("express");
@@ -38,4 +57,4 @@ app.get('/api/artists', function(request, response){
   });
 });
 
-app.listen(process.env.PORT || 8000);
+app.listen(process.env.PORT || 8000); */
