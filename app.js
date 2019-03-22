@@ -183,7 +183,7 @@ app.get("/api/albums/:id", function(request, response){
   })
 });
 
-// WebSockets assignment
+/* WebSockets assignment
 let WebSocket = require('ws');
 
 let wss = new WebSocket.Server({
