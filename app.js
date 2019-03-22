@@ -3,6 +3,10 @@ const sqlite3 = require('sqlite3').verbose();
 let express = require("express");
 let app = express();
 
+app.get("/", function(response){
+  response.status(200).send();
+});
+
 // Sequelize ORM lab
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
@@ -49,7 +53,6 @@ Track.hasOne(Media_Type, {
 Track.hasOne(Genre, {
   foreignKey:"GenreId"
 });
-
 
 app.patch("/tracks/:id", function(request, response){
   Track.findByPk(request.params.id, {
