@@ -4,7 +4,7 @@ let express = require("express");
 let app = express();
 
 app.get("/", function(response){
-  response.status(200).send();
+  return response.status(200).json({"This is the root directory."});
 });
 
 // Sequelize ORM lab
