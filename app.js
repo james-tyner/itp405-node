@@ -3,8 +3,8 @@ const sqlite3 = require('sqlite3').verbose();
 let express = require("express");
 let app = express();
 
-app.get("/", function(response){
-  return response.status(200).json({"This is the root directory."});
+app.get("/", function(request, response){
+  return response.status(200).send();
 });
 
 // Sequelize ORM lab
